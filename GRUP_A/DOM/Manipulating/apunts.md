@@ -84,6 +84,10 @@ Ex
    // Example using textContent
    Si hi ha algun element que no s'està mostrant per un display: none, no el veurem amb innerText, però si amb textContent! InnerText es sensible al que s'està dient que s'ha de mostrar a la pantalla.
 
+   documents.querySelector('p')
+   hide for example first <b>
+   p.textContent vs p.innerText
+
    I can use += to add to the existing textContent!
 
 2. getAttribute() i setAttribute()
@@ -104,13 +108,13 @@ Ex
 
    - A JS tots els estils passen a ser camelCase. Ex: font-size --> fontSize
      - h1.style.fontSize ='3em'
-   - L'objecte de JS no conté els estils que s'han definit a CSS, sinó que conté els estils que s'han definit a l'element HTML. Si no hi ha cap estil definit a l'element HTML, el JS no tindrà cap estil.
+   - L'objecte de JS no conté els estils que s'han definit a CSS, únicament pot accedir als estils aplicats en línia.
 
    - Normalment el que fem és afegir una classe a l'element HTML i definir els estils a CSS. Així, el JS només ha de fer servir la classe (HO VEUREM))
 
    - Exemple de allLinks (link.style.color, text, etc...)
 
-   - Per veure els estils que s'han definit a l'element HTML, podem fer servir el mètode getComputedStyle()
+   - Si volem veure els estils aplicats a través de CSS, podem fer servir el mètode getComputedStyle()
 
      - const h1 = document.querySelector('h1')
      - const compStyles = getComputedStyle(h1)
@@ -121,7 +125,7 @@ Ex
 
 4. ClassList
 
-   - Podem afegir, eliminar o modificar classes d'un element HTML.
+   - Podem afegir, eliminar, modificar, toogle classes d'un element HTML.
    - Exemple de allLinks (link.classList.add('highlight'), link.classList.remove('highlight'), link.classList.toggle('highlight'))
 
    - Creem dues classes a CSS: .purple i .border
@@ -156,20 +160,39 @@ Ex
 6- Append i AppendChild
 
 - Com creem un nou element HTML i l'afegim a la pàgina?
+  /// appendChild
+
   - createElement()
+
     - const newImg = document.createElement('img')
-    - newImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Silky_bantam.jpg/440px-Silky_bantam.jpg'
+    - newImg.src = 'https://images.ecestaticos.com/F-TN2CAB0c5Fldhz_ohhij7Mx08=/0x0:2000x1500/1200x1200/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F66c%2F610%2F55c%2F66c61055c27f77bdbdefa3be537336cd.jpg'
+    - appendChild() --> Afegim un element com a fill d'un altre element
+
+      - newImg.classList.add('square')
+
+    - const newH3 = document.createElement('h3')
+      - newH3.innerText = 'I am a new h3!'
+      - document.body.appendChild(newH3)
+
+  /// append --> més d'un element a la vegada i text
+
   - append() --> Afegeix un element al final de l'element. També em pot anar bé per afegir text.
+
     - document.body.append(newImg)
     - document.p.body('Hello World')
+
   - O prepend() --> Afegeix un element al principi.
+
     - document.body.prepend(newImg)
-  - appendChild() --> Afegim un element com a fill d'un altre element
-    - const newLi = document.createElement('li')
-  - removeChild() --> Eliminem un element fill d'un altre element
-    - const ul = document.querySelector('ul')
-    - const removeMe = ul.querySelector('.special')
-    - ul.removeChild(removeMe)
-  - remove() --> Eliminem un element
-    - const removeMe = document.querySelector('.special')
-    - removeMe.remove()
+
+  - Alguna manera més --> insertAdjacentElement https://developer.mozilla.org/es/docs/Web/API/Element/insertAdjacentHTML
+
+7- RemoveChild i Remove
+
+- removeChild() --> Eliminem un element fill d'un altre element
+  - const ul = document.querySelector('ul')
+  - const removeMe = ul.querySelector('.special')
+  - ul.removeChild(removeMe)
+- remove() --> Eliminem un element
+  - const removeMe = document.querySelector('.special')
+  - removeMe.remove()

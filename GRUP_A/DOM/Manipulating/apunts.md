@@ -104,58 +104,68 @@ Ex
 
 - firstLink.setAttribute('href', 'https://www.google.com')
 
-3. Styles
+3.  Styles
 
-   - A JS tots els estils passen a ser camelCase. Ex: font-size --> fontSize
-     - h1.style.fontSize ='3em'
-   - L'objecte de JS no conté els estils que s'han definit a CSS, únicament pot accedir als estils aplicats en línia.
+    - A JS tots els estils passen a ser camelCase. Ex: font-size --> fontSize
+      - h1.style.fontSize ='3em'
+    - L'objecte de JS no conté els estils que s'han definit a CSS, únicament pot accedir als estils aplicats en línia.
 
-   - Normalment el que fem és afegir una classe a l'element HTML i definir els estils a CSS. Així, el JS només ha de fer servir la classe (HO VEUREM))
+    - Normalment el que fem és afegir una classe a l'element HTML i definir els estils a CSS. Així, el JS només ha de fer servir la classe (HO VEUREM))
 
-   - Exemple de allLinks (link.style.color, text, etc...)
+    - Exemple de allLinks (link.style.color, text, etc...)
 
-   - Si volem veure els estils aplicats a través de CSS, podem fer servir el mètode getComputedStyle()
+    - Si volem veure els estils aplicats a través de CSS, podem fer servir el mètode getComputedStyle()
 
-     - const h1 = document.querySelector('h1')
-     - const compStyles = getComputedStyle(h1)
-     - compStyles.color
-     - compStyles.fontSize
+      - const h1 = document.querySelector('h1')
+      - const compStyles = getComputedStyle(h1)
+      - compStyles.color
+      - compStyles.fontSize
 
-     - Això únicament ens permet veure els estils que s'han definit a l'element HTML.
+      - Això únicament ens permet veure els estils que s'han definit a l'element HTML.
 
-4. ClassList
+4.  ClassList
 
-   - Podem afegir, eliminar, modificar, toogle classes d'un element HTML.
-   - Exemple de allLinks (link.classList.add('highlight'), link.classList.remove('highlight'), link.classList.toggle('highlight'))
+    - Podem afegir, eliminar, modificar, toogle classes d'un element HTML.
+    - Exemple de allLinks (link.classList.add('highlight'), link.classList.remove('highlight'), link.classList.toggle('highlight'))
 
-   - Creem dues classes a CSS: .purple i .border
+      // for (let link of allLinks) {
 
-     - h2.setAttribute("class", "border");
-     - h2.setAttribute("class", "purple");
-     - Problema: només es quedarà amb la classe que s'ha definit en segon lloc. Per tant, només es quedarà amb la classe purple.
-     - Podem fer servir el mètode classList.add() per afegir una classe a un element HTML sense perdre les classes que ja hi ha definides.
-       - h2.classList.add("purple");
-     - Podem eliminar una classe amb el mètode classList.remove()
-       - h2.classList.remove("border");
-     - Podem fer servir el mètode classList.toggle() per afegir o eliminar una classe.
-       - h2.classList.toggle("border");
+      // link.innerText = 'I AM A LINK!!!!'
+      // }
+      // for (let link of allLinks) {
+      // link.style.color = 'rgb(0, 108, 134)'
+      // link.style.textDecorationColor = 'magenta'
+      // link.style.textDecorationStyle = 'wavy'
+      // }
 
-5. Parent, Children, Siblings
+    - Creem dues classes a CSS: .purple i .border
 
-   - Podem accedir als elements HTML que són parents, children o siblings d'un element HTML.
-   - Exemple de allLinks (link.parentElement, link.children, link.previousElementSibling, link.nextElementSibling)
-   - Ex:
+      - h2.setAttribute("class", "border");
+      - h2.setAttribute("class", "purple");
+      - Problema: només es quedarà amb la classe que s'ha definit en segon lloc. Per tant, només es quedarà amb la classe purple.
+      - Podem fer servir el mètode classList.add() per afegir una classe a un element HTML sense perdre les classes que ja hi ha definides.
+        - h2.classList.add("purple");
+      - Podem eliminar una classe amb el mètode classList.remove()
+        - h2.classList.remove("border");
+      - Podem fer servir el mètode classList.toggle() per afegir o eliminar una classe.
+        - h2.classList.toggle("border");
 
-     - const firstBold = document.querySelector('b')
-     - firstBold.parentElement
-     - const paragraph = firstBold.parentElement
-     - paragraph.children[0].innerText = 'I am the child!'
+5.  Parent, Children, Siblings
 
-   - Ex de Siblings:
-     - compte! nextSibiling != nextElementSibling (el primer és un node, el segon és un element HTML)
-     - const squareImg = document.querySelector('.square')
-     - squareImg.nextElementSibling
-     - squareImg.previousElementSibling
+    - Podem accedir als elements HTML que són parents, children o siblings d'un element HTML.
+    - Exemple de allLinks (link.parentElement, link.children, link.previousElementSibling, link.nextElementSibling)
+    - Ex:
+
+      - const firstBold = document.querySelector('b')
+      - firstBold.parentElement
+      - const paragraph = firstBold.parentElement
+      - paragraph.children[0].innerText = 'I am the child!'
+
+    - Ex de Siblings:
+      - compte! nextSibiling != nextElementSibling (el primer és un node, el segon és un element HTML)
+      - const squareImg = document.querySelector('.square')
+      - squareImg.nextElementSibling
+      - squareImg.previousElementSibling
 
 6- Append i AppendChild
 

@@ -38,3 +38,7 @@ img.square {
 .tocnumber {
   color: black;
 }
+
+.highlight {
+  background-color: #ff0;
+}

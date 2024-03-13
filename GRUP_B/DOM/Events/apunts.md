@@ -8,6 +8,8 @@ Normalment quan parlem de events, ens referim a les accions que l'usuari fa a la
 - Escriure a un input
 - ...
 
+El nom de "l'event" representa l'acció que l'usuari fa, i el "handler" és la funció que s'executa quan es produeix l'event. També podríem considerar el "target" que seria l'objecte on succedeix l'event.
+
 ## OnClick
 
 L'event més comú és el `onClick`. Aquest event s'executa quan l'usuari clica a un element de la pàgina web. Per exemple, si volem que s'executi una funció quan l'usuari clica a un botó, podem fer-ho de la següent manera:
@@ -17,6 +19,28 @@ L'event més comú és el `onClick`. Aquest event s'executa quan l'usuari clica 
 ```
 
 Però no és recomanable utilitzar aquesta manera de fer-ho, ja que estem fent servir codi HTML per a fer una funció de JavaScript. Per això, és millor fer-ho de la següent manera:
+
+O també:
+
+```javascript
+var buttonElement = document.querySelector('button')
+
+function handler1() {
+  /* ... */
+}
+function handler2() {
+  /* ... */
+}
+
+buttonElement.onclick = handler1
+buttonElement.onclick = handler2
+```
+
+Però aquí el _handler2_ sobreescriu el _handler1_.
+
+Com ho fem doncs?
+
+## addEventListener
 
 html:
 
@@ -32,13 +56,11 @@ document.getElementById('myButton').addEventListener('click', myFunction)
 
 Ens ho fa més fàcil per a poder fer canvis i aplicar-ho a diferents elements (loop)
 
-Si fem consol.dir(button) veurem algunes coses interessants:
+Si fem _consol.dir(button)_ veurem algunes coses interessants:
 
 - onclick o onmousenter, si hem aplicat algun event, es veurà el que tenen assignat.
 
 No únicament a botons! Of course... Prova sobre l'H1 per exemple.
-
-## addEventListener
 
 Aquesta funció ens permet afegir un event a un element. El primer paràmetre és el tipus d'event que volem afegir, i el segon és la funció que volem que s'executi quan es produeixi l'event.
 

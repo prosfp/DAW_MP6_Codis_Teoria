@@ -6,7 +6,7 @@ const baseURL =
 
 // Hi ha un "fotimé" de Pokemons (>1000)... mostra els 200 o 300 primers... it's enough! ;)
 
-for (let i = 1; i <= 1010; i++) {
+for (let i = 1; i <= 1300; i++) {
   const pokemon = document.createElement('div')
   pokemon.classList.add('pokemon')
   const label = document.createElement('span')

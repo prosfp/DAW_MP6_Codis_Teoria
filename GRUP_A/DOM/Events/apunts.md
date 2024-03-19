@@ -16,7 +16,9 @@ L'event més comú és el `onClick`. Aquest event s'executa quan l'usuari clica 
 <button onclick="myFunction()">Click me</button>
 ```
 
-Però no és recomanable utilitzar aquesta manera de fer-ho, ja que estem fent servir codi HTML per a fer una funció de JavaScript. Per això, és millor fer-ho de la següent manera:
+Però no és recomanable utilitzar aquesta manera de fer-ho, ja que estem fent servir codi HTML per a fer una funció de JavaScript. A més ens limita a un sol event per element.
+
+Per això, és millor fer-ho de la següent manera:
 
 html:
 

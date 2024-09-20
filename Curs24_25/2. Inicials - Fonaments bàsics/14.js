@@ -1,8 +1,4 @@
-function crearSuma(a) {
-  return function (b) {
-    console.log(a);
-    return a + b;
-  };
+
 }
 console.log(typeof sumar5);
 

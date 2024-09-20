@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debugging Example</title>
+  </head>
+  <body>
+    <h1>Debugging Example</h1>
+    <button id="btn">Clica'm!</button>
+    <script>
+      document.getElementById('btn').addEventListener('click', function () {
+        let num = 5
+        let result = sum(num, 10)
+        console.log('Resultat:', result)
+      })
+
+      function sum(a, b) {
+        return a + b
+      }
+    </script>
+  </body>
+</html>
